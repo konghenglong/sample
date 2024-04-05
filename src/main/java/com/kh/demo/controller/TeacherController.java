@@ -21,27 +21,23 @@ public class TeacherController {
 
     @PostMapping
     public ResponseEntity<Teacher> createTeacher(@RequestBody Teacher teacher) {
-        Teacher createdTeacher = teacherService.createTeacher(teacher);
-        return ResponseEntity.ok(createdTeacher);
+        return ResponseEntity.ok(teacherService.createTeacher(teacher));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Teacher> getTeacherById(@PathVariable Long id) {
-        Teacher teacher = teacherService.getTeacherById(id);
-        return ResponseEntity.ok(teacher);
+        return ResponseEntity.ok(teacherService.getTeacherById(id));
     }
 
     @GetMapping
     public ResponseEntity<List<Teacher>> getAllTeachers() {
-        List<Teacher> teachers = teacherService.getAllTeachers();
-        return ResponseEntity.ok(teachers);
+        return ResponseEntity.ok(teacherService.getAllTeachers());
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Teacher> updateTeacher(@PathVariable Long id, @RequestBody Teacher teacher) {
         teacher.setId(id);  // Set the ID to ensure update on the right entity
-        Teacher updatedTeacher = teacherService.updateTeacher(teacher);
-        return ResponseEntity.ok(updatedTeacher);
+        return ResponseEntity.ok(teacherService.updateTeacher(teacher));
     }
 
     @DeleteMapping("/{id}")

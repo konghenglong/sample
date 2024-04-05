@@ -17,21 +17,23 @@ public class StudentController {
 
     @PostMapping
     public ResponseEntity<Student> createStudent(@RequestBody Student student) {
-        Student createdTeacher = studentService.createStudent(student);
-        return ResponseEntity.ok(createdTeacher);
+        return ResponseEntity.ok(studentService.createStudent(student));
     }
 
     @GetMapping
     public ResponseEntity<List<Student>> getAllStudents() {
-        List<Student> allStudents = studentService.getAllStudents();
-        return ResponseEntity.ok(allStudents);
+        return ResponseEntity.ok(studentService.getAllStudents());
     }
 
     @GetMapping("/{id}")
+    public ResponseEntity<Student> getStudentById(@PathVariable Long id) {
+        return ResponseEntity.ok(studentService.getStudentById(id));
+    }
+
+    @PutMapping("/{id}")
     public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student student) {
         student.setId(id);
-        Student updatedStudent = studentService.updateStudent(student);
-        return ResponseEntity.ok(updatedStudent);
+        return ResponseEntity.ok(studentService.updateStudent(student));
     }
 
     @DeleteMapping("/{id}")

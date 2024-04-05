@@ -25,21 +25,23 @@ public class CourseController {
         Long teacherId = course.getTeacher().getId();
         Teacher teacher = teacherService.getTeacherById(teacherId);
         course.setTeacher(teacher);
-        Course createdCourse = courseService.createCourse(course);
-        return ResponseEntity.ok(createdCourse);
+        return ResponseEntity.ok(courseService.createCourse(course));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Course> getCourseById(@PathVariable Long id) {
+        return ResponseEntity.ok(courseService.getCourseById(id));
     }
 
     @GetMapping
     public ResponseEntity<List<Course>> getAllCourses() {
-        List<Course> allCourses = courseService.getAllCourses();
-        return ResponseEntity.ok(allCourses);
+        return ResponseEntity.ok(courseService.getAllCourses());
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Course> updateCourse(@PathVariable Long id, @RequestBody Course course) {
         course.setId(id);
-        Course updatedCourse = courseService.updateCourse(course);
-        return ResponseEntity.ok(updatedCourse);
+        return ResponseEntity.ok(courseService.updateCourse(course));
     }
 
     @DeleteMapping("/{id}")

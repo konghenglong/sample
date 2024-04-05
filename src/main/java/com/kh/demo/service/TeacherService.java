@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface TeacherService {
 
-
     Teacher createTeacher(Teacher teacher);
 
     Teacher getTeacherById(Long id);
