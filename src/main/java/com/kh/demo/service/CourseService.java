@@ -1,18 +1,18 @@
 package com.kh.demo.service;
 
-import com.kh.demo.entity.Course;
+import com.kh.demo.entity.one_to_many.Course;
 
 import java.util.List;
 
 public interface CourseService {
 
-    Course createCourse(Course course);
+    Course create(Course course);
 
-    Course getCourseById(Long id);
+    Course update(Long id, Course course);
 
-    List<Course> getAllCourses();
+    void deleteById(Long id);
 
-    Course updateCourse(Course course);
+    Course findById(Long id);
 
-    void deleteCourse(Long id);
+    List<Course> findAll();
 }

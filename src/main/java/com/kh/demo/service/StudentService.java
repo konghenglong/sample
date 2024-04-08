@@ -1,19 +1,18 @@
 package com.kh.demo.service;
 
-import com.kh.demo.entity.Student;
+import com.kh.demo.entity.one_to_many.Student;
 
 import java.util.List;
 
 public interface StudentService {
 
-    Student createStudent(Student student);
+    Student save(Student student);
 
-    Student getStudentById(Long id);
+    Student update(Long id, Student student);
 
-    List<Student> getAllStudents();
+    Student findById(Long id);
 
-    Student updateStudent(Student student);
+    List<Student> findAll();
 
-    void deleteStudent(Long id);
-
+    void deleteById(Long id);
 }

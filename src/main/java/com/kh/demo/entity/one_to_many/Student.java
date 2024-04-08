@@ -1,4 +1,4 @@
-package com.kh.demo.entity;
+package com.kh.demo.entity.one_to_many;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,18 +7,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "students")
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class Teacher {
+@AllArgsConstructor
+public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
+    private String email;
 
-    @OneToOne(mappedBy = "teacher")
+    @ManyToOne
+    @JoinColumn(name = "course_id")
     private Course course;
 }
